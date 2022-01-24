@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="_Common">
+      <UniqueIdentifier>{ad61adae-e61e-4760-a089-f8a61c9f04fb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>_Common</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>_Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>_Common</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>_Common</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
