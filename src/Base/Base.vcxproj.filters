@@ -4,6 +4,9 @@
     <Filter Include="_Common">
       <UniqueIdentifier>{ad61adae-e61e-4760-a089-f8a61c9f04fb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="External">
+      <UniqueIdentifier>{c4d33cad-9c20-49f5-b424-59ebadcb60e9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -12,6 +15,12 @@
     <ClInclude Include="pch.h">
       <Filter>_Common</Filter>
     </ClInclude>
+    <ClInclude Include="glad.h">
+      <Filter>External</Filter>
+    </ClInclude>
+    <ClInclude Include="khrplatform.h">
+      <Filter>External</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -19,6 +28,9 @@
     </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>_Common</Filter>
+    </ClCompile>
+    <ClCompile Include="glad.cpp">
+      <Filter>External</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

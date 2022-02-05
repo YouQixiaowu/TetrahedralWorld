@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="_Common">
+      <UniqueIdentifier>{1d1b0cd3-c9ab-4d61-9652-d27bae611e59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{e89274ab-dffb-4a86-9b01-7c4538a830f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThreadMutex">
+      <UniqueIdentifier>{50ae6e68-f520-4eb6-8bd6-3ceb0e6bad67}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>_Common</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>_Common</Filter>
+    </ClInclude>
+    <ClInclude Include="MainProcedure.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="NamedEvent.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Supervisor.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\Core\CoreAPI.h">
+      <Filter>_Common</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadMutex.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>_Common</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>_Common</Filter>
+    </ClCompile>
+    <ClCompile Include="MainProcedure.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="NamedEvent.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Supervisor.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadMutex.cpp" />
+  </ItemGroup>
+</Project>
