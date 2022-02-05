@@ -6,7 +6,20 @@
 
 #ifndef PCH_H
 #define PCH_H
+#include <atomic>
+#include <thread>
+#include <mutex>
 #include <functional>
-// 添加要在此处预编译的标头
+#include <queue>
+#include <vector>
+#include <map>
+#include <set>
+#include <list>
+#include <tuple>
+#include <string>
+#include "MainProcedure.h"
+#include "NamedEvent.h"
+#include "ThreadMutex.h"
+#include "Supervisor.h"
 #include "framework.h"
 #endif //PCH_H
