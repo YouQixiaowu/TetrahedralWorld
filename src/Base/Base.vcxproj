@@ -137,7 +137,8 @@
     <PostBuildEvent>
       <Command>copy  "$(SolutionDir)..\lib\$(Configuration)_$(Platform)\$(ProjectName).dll" "$(SolutionDir)..\bin\$(Configuration)_$(Platform)\$(ProjectName).dll"
 copy  "$(SolutionDir)..\lib\$(Configuration)_$(Platform)\$(ProjectName).pdb" "$(SolutionDir)..\bin\$(Configuration)_$(Platform)\$(ProjectName).pdb"  
-copy  "$(SolutionDir)$(ProjectName)\glfw3.dll" "$(SolutionDir)..\bin\$(Configuration)_$(Platform)\glfw3.dll"</Command>
+copy  "$(SolutionDir)$(ProjectName)\*.lib" "$(SolutionDir)..\bin\$(Configuration)_$(Platform)\"
+copy  "$(SolutionDir)$(ProjectName)\*.dll" "$(SolutionDir)..\bin\$(Configuration)_$(Platform)\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -163,7 +164,8 @@ copy  "$(SolutionDir)$(ProjectName)\glfw3.dll" "$(SolutionDir)..\bin\$(Configura
     <PostBuildEvent>
       <Command>copy  "$(SolutionDir)..\lib\$(Configuration)_$(Platform)\$(ProjectName).dll" "$(SolutionDir)..\bin\$(Configuration)_$(Platform)\$(ProjectName).dll"
 copy  "$(SolutionDir)..\lib\$(Configuration)_$(Platform)\$(ProjectName).pdb" "$(SolutionDir)..\bin\$(Configuration)_$(Platform)\$(ProjectName).pdb"  
-copy  "$(SolutionDir)$(ProjectName)\glfw3.dll" "$(SolutionDir)..\bin\$(Configuration)_$(Platform)\glfw3.dll"</Command>
+copy  "$(SolutionDir)$(ProjectName)\*.lib" "$(SolutionDir)..\bin\$(Configuration)_$(Platform)\"
+copy  "$(SolutionDir)$(ProjectName)\*.dll" "$(SolutionDir)..\bin\$(Configuration)_$(Platform)\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
