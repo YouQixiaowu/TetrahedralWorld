@@ -1,25 +1,26 @@
 #include "pch.h"
 #include <iostream>
-
+#include <memory>
 namespace tw
 {
-    Supervisor* Supervisor::s_instance = nullptr;
+    std::unique_ptr<Supervisor> Supervisor::s_instance = nullptr;
     static std::mutex s_mutex;
 
     Supervisor& Supervisor::_instance()
     {
-
         if (s_instance == nullptr)
         {
             std::unique_lock<std::mutex> lock(s_mutex);
             if (s_instance == nullptr)
-                s_instance = new Supervisor;
+                s_instance.reset(new Supervisor);
         }
         return *s_instance;
     }
 
     Supervisor::Supervisor() :
         m_life(true),
+        m_synchronize(false),
+        m_mainEvent(nullptr),
         m_mutexMain(std::this_thread::get_id()),
         m_procedures(),
         m_namedEvents(),
@@ -29,11 +30,29 @@ namespace tw
     {
     }
 
+    Supervisor::~Supervisor()
+    {
+        m_thread.join();
+    }
+
     void Supervisor::_mainLoop()
     {
         m_mutexMain.close();
+        WhenDestructing wd([&] { m_mutexMain.open(); });
         while (m_life)
         {
+            if (m_synchronize)
+            {
+                if (m_mainEvent != nullptr)
+                {
+                    std::cout << "Main:" << std::endl;
+                    m_mainEvent->execute();
+                }
+                m_mainEvent = nullptr;
+                m_synchronize = false;
+                if (!m_life)
+                    break;
+            }
             for (std::list<MainProcedure*>& iter : m_procedures)
             {
                 m_mutexMain.release();
@@ -47,6 +66,7 @@ namespace tw
     void Supervisor::_stewardLoop()
     {
         m_mutexSteward.close();
+        WhenDestructing wd([&] { m_mutexSteward.open(); });
         while (m_life)
         {
             m_mutexSteward.release();
@@ -64,21 +84,26 @@ namespace tw
                 {
                     if (iter == nullptr)
                         continue;
-                    iter->execute();
+                    if (iter->isMain())
+                    {
+                        m_mainEvent = iter;
+                        m_synchronize = true;
+                        while (m_synchronize)
+                            m_mutexSteward.release();
+                    }
+                    else
+                    {
+                        iter->execute();
+                    }
+                    if (!m_life)
+                        break;
                 }
                 m_eventNames.pop();
             }
         }
     }
 
-    //void Supervisor::stopMainLoop()
-    //{
-    //    Supervisor& supervisor = _instance();
-    //    supervisor.m_life = false;
-    //    supervisor.m_thread.join();
-    //}
-
-    void Supervisor::enterMainLoop()
+    void Supervisor::employ()
     {
         static bool one = false;
         if (one)
@@ -95,4 +120,18 @@ namespace tw
         supervisor.m_eventNames.push(eventName);
     }
 
+    class ExitEvent :public NamedEvent
+    {
+    public:
+        ExitEvent() :
+            NamedEvent("Exit", true)
+        {
+        }
+        void execute() override
+        {
+            Supervisor& supervisor = Supervisor::_instance();
+            supervisor.m_life = false;
+        }
+    };
+    static ExitEvent s_exitEvent;
 }

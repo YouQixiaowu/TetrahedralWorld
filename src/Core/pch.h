@@ -21,5 +21,6 @@
 #include "NamedEvent.h"
 #include "ThreadMutex.h"
 #include "Supervisor.h"
+#include "WhenDestructing.h"
 #include "framework.h"
 #endif //PCH_H

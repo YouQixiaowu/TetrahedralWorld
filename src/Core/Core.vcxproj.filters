@@ -30,7 +30,12 @@
     <ClInclude Include="..\..\inc\Core\CoreAPI.h">
       <Filter>_Common</Filter>
     </ClInclude>
-    <ClInclude Include="ThreadMutex.h" />
+    <ClInclude Include="ThreadMutex.h">
+      <Filter>ThreadMutex</Filter>
+    </ClInclude>
+    <ClInclude Include="WhenDestructing.h">
+      <Filter>ThreadMutex</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -48,6 +53,8 @@
     <ClCompile Include="Supervisor.cpp">
       <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="ThreadMutex.cpp" />
+    <ClCompile Include="ThreadMutex.cpp">
+      <Filter>ThreadMutex</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

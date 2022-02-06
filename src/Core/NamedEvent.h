@@ -20,6 +20,14 @@ namespace tw
         /// 事件被触发时，会执行该函数。
         /// </summary>
         virtual void execute() = 0;
+        /// <summary>
+        /// 是否为主线程事件
+        /// </summary>
+        /// <returns>true 为主线程</returns>
+        inline bool isMain()
+        {
+            return m_isMain;
+        }
     private:
         std::string m_eventName;
         bool m_isMain;

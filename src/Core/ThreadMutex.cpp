@@ -2,6 +2,8 @@
 namespace tw
 {
     ThreadMutex::ThreadMutex(std::thread::id threadId) :
+        m_threadId(threadId),
+        m_mutex(),
         m_suspend(0),
         m_openState(true)
     {
@@ -9,8 +11,6 @@ namespace tw
 
     ThreadMutex::~ThreadMutex()
     {
-        if (!m_openState)
-            m_mutex.unlock();
     }
 
     void ThreadMutex::lock()

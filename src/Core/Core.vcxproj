@@ -172,6 +172,7 @@ copy  "$(SolutionDir)..\lib\$(Configuration)_$(Platform)\$(ProjectName).pdb" "$(
     <ClInclude Include="pch.h" />
     <ClInclude Include="Supervisor.h" />
     <ClInclude Include="ThreadMutex.h" />
+    <ClInclude Include="WhenDestructing.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />

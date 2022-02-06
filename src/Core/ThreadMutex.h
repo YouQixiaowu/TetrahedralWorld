@@ -41,7 +41,7 @@ namespace tw
         std::thread::id m_threadId;
         std::mutex m_mutex;
         // 其他线程访问计数，归零意味着其他访问请求
-        std::atomic<size_t> m_suspend = 0;
+        std::atomic<size_t> m_suspend;
         // 资源开放状态，开发状态下资源所属线程不使用资源
         bool m_openState;
     };

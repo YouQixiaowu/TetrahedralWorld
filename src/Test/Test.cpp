@@ -21,12 +21,18 @@ namespace tw
     {
     public:
         Test2() :
-            NamedEvent("Test2", true)
+            NamedEvent("Test2", false)
         {
         }
         void execute() override
         {
+            static int i = 0;
+            i++;
             std::cout << "Test2" << std::endl;
+            if (i>5)
+            {
+                Supervisor::intend("Exit");
+            }
         }
     };
     static Test1 s_test1;

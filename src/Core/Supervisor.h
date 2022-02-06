@@ -15,16 +15,21 @@ namespace tw
         /// <summary>
         /// 进入主循环（由主线程调用一次）
         /// </summary>
-        __declspec(dllexport) static void enterMainLoop();
+        __declspec(dllexport) static void employ();
+        ~Supervisor();
     private:
         Supervisor();
         Supervisor(const Supervisor&) = delete;
         void operator=(const Supervisor&) = delete;
-        static Supervisor* s_instance;
+        static std::unique_ptr<Supervisor> s_instance;
         static Supervisor& _instance();
         
         // 主线程与管家线程的退出标志
         std::atomic<bool> m_life;
+        // 主线程与管家线程同步标志
+        std::atomic<bool> m_synchronize;
+        //主线程需要处理的事件
+        NamedEvent* m_mainEvent;
         // 主线程资源锁
         ThreadMutex m_mutexMain;
         // 主线程流程
@@ -43,5 +48,6 @@ namespace tw
         void _stewardLoop();
         friend class MainProcedure;
         friend class NamedEvent;
+        friend class ExitEvent;
     };
 }
