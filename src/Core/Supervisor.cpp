@@ -78,25 +78,26 @@ namespace tw
             {
                 std::string eventName = m_eventNames.front();
                 auto temp = m_namedEvents.find(eventName);
-                if (temp == m_namedEvents.end())
-                    continue;
-                for (auto iter : temp->second)
+                if (temp != m_namedEvents.end())
                 {
-                    if (iter == nullptr)
-                        continue;
-                    if (iter->isMain())
+                    for (auto iter : temp->second)
                     {
-                        m_mainEvent = iter;
-                        m_synchronize = true;
-                        while (m_synchronize)
-                            m_mutexSteward.release();
+                        if (iter == nullptr)
+                            continue;
+                        if (iter->isMain())
+                        {
+                            m_mainEvent = iter;
+                            m_synchronize = true;
+                            while (m_synchronize)
+                                m_mutexSteward.release();
+                        }
+                        else
+                        {
+                            iter->execute();
+                        }
+                        if (!m_life)
+                            break;
                     }
-                    else
-                    {
-                        iter->execute();
-                    }
-                    if (!m_life)
-                        break;
                 }
                 m_eventNames.pop();
             }

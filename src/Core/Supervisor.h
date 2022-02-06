@@ -23,7 +23,6 @@ namespace tw
         void operator=(const Supervisor&) = delete;
         static std::unique_ptr<Supervisor> s_instance;
         static Supervisor& _instance();
-        
         // 主线程与管家线程的退出标志
         std::atomic<bool> m_life;
         // 主线程与管家线程同步标志

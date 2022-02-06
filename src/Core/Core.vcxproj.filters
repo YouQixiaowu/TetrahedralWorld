@@ -7,8 +7,11 @@
     <Filter Include="Core">
       <UniqueIdentifier>{e89274ab-dffb-4a86-9b01-7c4538a830f1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ThreadMutex">
+    <Filter Include="Other">
       <UniqueIdentifier>{50ae6e68-f520-4eb6-8bd6-3ceb0e6bad67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NewFilter1">
+      <UniqueIdentifier>{529e6388-e8a6-4f11-98d7-c0bb59921838}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -31,10 +34,10 @@
       <Filter>_Common</Filter>
     </ClInclude>
     <ClInclude Include="ThreadMutex.h">
-      <Filter>ThreadMutex</Filter>
+      <Filter>Other</Filter>
     </ClInclude>
     <ClInclude Include="WhenDestructing.h">
-      <Filter>ThreadMutex</Filter>
+      <Filter>Other</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -54,7 +57,7 @@
       <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="ThreadMutex.cpp">
-      <Filter>ThreadMutex</Filter>
+      <Filter>Other</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

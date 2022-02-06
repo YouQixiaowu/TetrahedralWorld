@@ -7,7 +7,7 @@ namespace tw
     {
     public:
         Test1() :
-            MainProcedure(0)
+            MainProcedure(1)
         {
         }
         void execute() override
@@ -29,9 +29,10 @@ namespace tw
             static int i = 0;
             i++;
             std::cout << "Test2" << std::endl;
-            if (i>5)
+            if (i > 5)
             {
-                Supervisor::intend("Exit");
+                //Supervisor::intend("Exit");
+                Supervisor::intend("ExTest2it");
             }
         }
     };
