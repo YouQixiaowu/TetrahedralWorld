@@ -41,4 +41,7 @@ bld/
 [Bb]in/
 [Oo]bj/
 
-/source/.vs/
+/src/.vs/
+/lib/
+/bin/
+/temp/
