@@ -6,7 +6,24 @@
 
 #ifndef PCH_H
 #define PCH_H
+#define WIN32_LEAN_AND_MEAN             // 从 Windows 头文件中排除极少使用的内容
+#include <windows.h>
+#include <atomic>
+#include <thread>
+#include <mutex>
 #include <functional>
-// 添加要在此处预编译的标头
-#include "framework.h"
+#include <queue>
+#include <vector>
+#include <map>
+#include <set>
+#include <list>
+#include <tuple>
+#include <string>
+//
+#include "glad.h"
+#include "glfw3.h"
+#include "glm/glm.hpp"
+#include "glm/ext.hpp"
+//
+#include "Window.h"
 #endif //PCH_H

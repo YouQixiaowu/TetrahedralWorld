@@ -12,6 +12,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Base", "Base\Base.vcxproj", "{55DE0C80-CFF6-470F-8801-48F32C9934D6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Core", "Core\Core.vcxproj", "{7E657090-291A-4443-B228-67D073B842C1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{55DE0C80-CFF6-470F-8801-48F32C9934D6} = {55DE0C80-CFF6-470F-8801-48F32C9934D6}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{08702C38-70F9-4671-A074-35AD3B830AB1}"
 EndProject

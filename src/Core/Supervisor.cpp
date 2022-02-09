@@ -44,10 +44,7 @@ namespace tw
             if (m_synchronize)
             {
                 if (m_mainEvent != nullptr)
-                {
-                    std::cout << "Main:" << std::endl;
                     m_mainEvent->execute();
-                }
                 m_mainEvent = nullptr;
                 m_synchronize = false;
                 if (!m_life)

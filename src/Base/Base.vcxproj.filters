@@ -7,11 +7,11 @@
     <Filter Include="External">
       <UniqueIdentifier>{c4d33cad-9c20-49f5-b424-59ebadcb60e9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{8a9d5f29-99ae-4db5-83fb-cc5a9c687f28}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>_Common</Filter>
-    </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>_Common</Filter>
     </ClInclude>
@@ -20,6 +20,15 @@
     </ClInclude>
     <ClInclude Include="khrplatform.h">
       <Filter>External</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowManager.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\Base\BaseAPI.h">
+      <Filter>_Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -31,6 +40,12 @@
     </ClCompile>
     <ClCompile Include="glad.cpp">
       <Filter>External</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowManager.cpp">
+      <Filter>Window</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
