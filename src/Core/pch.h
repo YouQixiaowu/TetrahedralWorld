@@ -10,6 +10,7 @@
 #include <windows.h>
 #include <atomic>
 #include <thread>
+#include <memory>
 #include <mutex>
 #include <functional>
 #include <queue>
@@ -19,9 +20,14 @@
 #include <list>
 #include <tuple>
 #include <string>
+#include <fstream>
+#include <iostream>
+#include <ctime>
+#include <chrono>
+#include "Base/BaseAPI.h"
 #include "MainProcedure.h"
 #include "NamedEvent.h"
 #include "ThreadMutex.h"
 #include "Supervisor.h"
-#include "WhenDestructing.h"
+#include "SettingsData.h"
 #endif //PCH_H

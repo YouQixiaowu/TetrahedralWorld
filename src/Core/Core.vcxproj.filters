@@ -4,11 +4,14 @@
     <Filter Include="_Common">
       <UniqueIdentifier>{1d1b0cd3-c9ab-4d61-9652-d27bae611e59}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core">
-      <UniqueIdentifier>{e89274ab-dffb-4a86-9b01-7c4538a830f1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Other">
       <UniqueIdentifier>{50ae6e68-f520-4eb6-8bd6-3ceb0e6bad67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event">
+      <UniqueIdentifier>{e89274ab-dffb-4a86-9b01-7c4538a830f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Persistence">
+      <UniqueIdentifier>{b74e7c1f-768d-489a-a481-30b4a759631e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -16,13 +19,13 @@
       <Filter>_Common</Filter>
     </ClInclude>
     <ClInclude Include="MainProcedure.h">
-      <Filter>Core</Filter>
+      <Filter>Event</Filter>
     </ClInclude>
     <ClInclude Include="NamedEvent.h">
-      <Filter>Core</Filter>
+      <Filter>Event</Filter>
     </ClInclude>
     <ClInclude Include="Supervisor.h">
-      <Filter>Core</Filter>
+      <Filter>Event</Filter>
     </ClInclude>
     <ClInclude Include="..\..\inc\Core\CoreAPI.h">
       <Filter>_Common</Filter>
@@ -30,8 +33,11 @@
     <ClInclude Include="ThreadMutex.h">
       <Filter>Other</Filter>
     </ClInclude>
-    <ClInclude Include="WhenDestructing.h">
-      <Filter>Other</Filter>
+    <ClInclude Include="SettingsData.h">
+      <Filter>Persistence</Filter>
+    </ClInclude>
+    <ClInclude Include="ArchiveData.h">
+      <Filter>Persistence</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -42,16 +48,22 @@
       <Filter>_Common</Filter>
     </ClCompile>
     <ClCompile Include="MainProcedure.cpp">
-      <Filter>Core</Filter>
+      <Filter>Event</Filter>
     </ClCompile>
     <ClCompile Include="NamedEvent.cpp">
-      <Filter>Core</Filter>
+      <Filter>Event</Filter>
     </ClCompile>
     <ClCompile Include="Supervisor.cpp">
-      <Filter>Core</Filter>
+      <Filter>Event</Filter>
     </ClCompile>
     <ClCompile Include="ThreadMutex.cpp">
       <Filter>Other</Filter>
+    </ClCompile>
+    <ClCompile Include="ArchiveData.cpp">
+      <Filter>Persistence</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsData.cpp">
+      <Filter>Persistence</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

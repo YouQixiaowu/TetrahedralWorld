@@ -4,22 +4,26 @@ namespace tw
     class Window
     {
     public:
-        __declspec(dllexport) Window(const std::string& name);
-        __declspec(dllexport) ~Window();
         /// <summary>
-        /// 进入消息循环
+        /// 启动窗口
         /// </summary>
-        __declspec(dllexport) void employ();
+        __declspec(dllexport) static void start();
         /// <summary>
-        /// 通知线程使其终止
+        /// 停止窗口线程
         /// </summary>
-        __declspec(dllexport) void stop();
-        virtual LRESULT _employ(UINT uMsg, WPARAM wParam, LPARAM lParam) = 0;
-    protected:
-        HWND m_hwnd;
+        __declspec(dllexport) static void stop();
+        ~Window();
     private:
-        friend class WindowManager;
-        std::atomic<int> m_life;
+        Window();
+        static std::unique_ptr<Window> s_instance;
+        static Window& instance();
+        static void loop();
+        GLFWwindow* m_window;
+        std::string m_name;
+        size_t m_with;
+        size_t m_height;
+        double m_deltaTime;
+        std::atomic<bool> m_life;
+        std::thread m_thread;
     };
-
 }

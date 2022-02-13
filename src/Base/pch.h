@@ -24,6 +24,10 @@
 #include "glfw3.h"
 #include "glm/glm.hpp"
 #include "glm/ext.hpp"
-//
+
+#include "WhenDestructing.h"
+#include "Log.h"
 #include "Window.h"
+#include "Renderer.h"
+
 #endif //PCH_H
