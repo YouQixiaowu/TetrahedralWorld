@@ -29,5 +29,7 @@
 #include "NamedEvent.h"
 #include "ThreadMutex.h"
 #include "Supervisor.h"
-#include "SettingsData.h"
+#include "ArchiveData.h"    // 存档数据
+#include "SettingsData.h"   // 用户设置数据
+#include "RuntimeData.h"    // 运行时数据
 #endif //PCH_H

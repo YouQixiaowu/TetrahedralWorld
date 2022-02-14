@@ -170,6 +170,7 @@ copy  "$(SolutionDir)..\lib\$(Configuration)_$(Platform)\$(ProjectName).pdb" "$(
     <ClInclude Include="MainProcedure.h" />
     <ClInclude Include="NamedEvent.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="RuntimeData.h" />
     <ClInclude Include="SettingsData.h" />
     <ClInclude Include="Supervisor.h" />
     <ClInclude Include="ThreadMutex.h" />
@@ -185,6 +186,7 @@ copy  "$(SolutionDir)..\lib\$(Configuration)_$(Platform)\$(ProjectName).pdb" "$(
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="RuntimeData.cpp" />
     <ClCompile Include="SettingsData.cpp" />
     <ClCompile Include="Supervisor.cpp" />
     <ClCompile Include="ThreadMutex.cpp" />

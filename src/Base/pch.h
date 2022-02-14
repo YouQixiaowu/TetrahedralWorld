@@ -19,15 +19,21 @@
 #include <list>
 #include <tuple>
 #include <string>
-//
+
+/* 依赖的三方库 */
+// GLAD https://glad.dav1d.de/
 #include "glad.h"
+// Graphics Library Framework (glfw) https://github.com/glfw/glfw
 #include "glfw3.h"
+// OpenGL Mathematics (GLM) https://github.com/g-truc/glm
 #include "glm/glm.hpp"
 #include "glm/ext.hpp"
+// Eigen https://eigen.tuxfamily.org/
+#include "Eigen/Dense"
 
+/* 内部代码 */
 #include "WhenDestructing.h"
 #include "Log.h"
 #include "Window.h"
 #include "Renderer.h"
-
 #endif //PCH_H

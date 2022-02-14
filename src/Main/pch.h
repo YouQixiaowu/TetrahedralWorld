@@ -7,6 +7,7 @@
 #ifndef PCH_H
 #define PCH_H
 #include <iostream>
+#include <thread>
 #include "Base/BaseAPI.h"
 #include "Core/CoreAPI.h"
 #endif //PCH_H

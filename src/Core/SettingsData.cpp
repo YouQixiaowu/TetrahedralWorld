@@ -7,7 +7,6 @@ namespace tw
     //{
     //    std::ifstream infile("1.txt");
     //    std::string line;
-
     //    if (!infile) // 有该文件
     //    {
     //        std::cout << "no such file" << std::endl;
@@ -64,5 +63,4 @@ namespace tw
         outfile << "Hi" << std::endl;
         outfile.close();
     }
-
 }

@@ -10,7 +10,7 @@
     <Filter Include="Event">
       <UniqueIdentifier>{e89274ab-dffb-4a86-9b01-7c4538a830f1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Persistence">
+    <Filter Include="Data">
       <UniqueIdentifier>{b74e7c1f-768d-489a-a481-30b4a759631e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -34,10 +34,13 @@
       <Filter>Other</Filter>
     </ClInclude>
     <ClInclude Include="SettingsData.h">
-      <Filter>Persistence</Filter>
+      <Filter>Data</Filter>
     </ClInclude>
     <ClInclude Include="ArchiveData.h">
-      <Filter>Persistence</Filter>
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="RuntimeData.h">
+      <Filter>Data</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -60,10 +63,13 @@
       <Filter>Other</Filter>
     </ClCompile>
     <ClCompile Include="ArchiveData.cpp">
-      <Filter>Persistence</Filter>
+      <Filter>Data</Filter>
     </ClCompile>
     <ClCompile Include="SettingsData.cpp">
-      <Filter>Persistence</Filter>
+      <Filter>Data</Filter>
+    </ClCompile>
+    <ClCompile Include="RuntimeData.cpp">
+      <Filter>Data</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
