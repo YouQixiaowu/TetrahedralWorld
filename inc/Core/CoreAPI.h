@@ -1,8 +1,100 @@
 #pragma once
 #include <string>
 #include <map>
+#include <vector>
 namespace tw
 {
+    /// <summary>
+    /// 泛型代理
+    /// </summary>
+    class Generic
+    {
+    private:
+        class _Base
+        {
+        public:
+            _Base()
+            {
+            }
+            virtual ~_Base()
+            {
+            }
+            virtual _Base* _copy() = 0;
+        };
+        template<typename T>
+        class _Ptr :
+            public _Base
+        {
+        public:
+            _Ptr(const T& other) :
+                _imp(other)
+            {
+            }
+            ~_Ptr()
+            {
+            }
+            _Base* _copy() override
+            {
+                return new _Ptr<T>(_imp);
+            }
+            T _imp;
+        };
+    public:
+        Generic() :
+            _ptr(nullptr)
+        {
+        }
+        ~Generic()
+        {
+            _setPtr(nullptr);
+        }
+        Generic(const Generic& gnrc) :
+            _ptr(gnrc._ptr == nullptr ? nullptr : gnrc._ptr->_copy())
+        {
+        }
+        Generic(Generic&& gnrc) noexcept :
+            _ptr(gnrc._ptr)
+        {
+            gnrc._ptr = nullptr;
+        }
+        Generic& operator=(const Generic& gnrc)
+        {
+            _setPtr(gnrc._ptr == nullptr ? nullptr : gnrc._ptr->_copy());
+            return *this;
+        }
+        Generic& operator=(Generic&& gnrc) noexcept
+        {
+            _setPtr(gnrc._ptr); return *this;
+        }
+        template<typename T>
+        inline Generic(const T& variable) :
+            _ptr(new _Ptr<T>(variable))
+        {
+        }
+        template<typename T>
+        inline T& as()
+        {
+            return *dynamic_cast<_Ptr<T>*>(_ptr);
+        }
+        template<typename T>
+        inline const T& as() const
+        {
+            return *dynamic_cast<_Ptr<T>*>(_ptr);
+        }
+        template<typename T>
+        inline bool is() const
+        {
+            return dynamic_cast<_Ptr<T>*>(_ptr) != nullptr;
+        }
+    private:
+        inline void _setPtr(_Base* ptr)
+        {
+            if (_ptr != nullptr) delete _ptr;
+            _ptr = ptr;
+        }
+        _Base* _ptr;
+    };
+
     /// <summary>
     /// 主线程流程
     /// </summary>
@@ -68,15 +160,13 @@ namespace tw
         /// 触发命名事件，命令会交由管家线程异步执行。
         /// </summary>
         /// <param name="eventName">命名事件名</param>
-        __declspec(dllexport) static void intend(const std::string& eventName);
+        __declspec(dllimport) static void intend(const std::string& eventName);
         /// <summary>
         /// 进入主循环（由主线程调用一次）
         /// </summary>
-        __declspec(dllexport) static void employ();
+        __declspec(dllimport) static void employ();
     private:
         Supervisor();
-        Supervisor(const Supervisor&) = delete;
-        void operator=(const Supervisor&) = delete;
     };
 
     /// <summary>
@@ -91,20 +181,73 @@ namespace tw
         /// </summary>
         /// <param name="key">设置项名</param>
         /// <returns>项值</returns>
-        __declspec(dllimport) static const std::string& get(const std::string key);
+        __declspec(dllexport) static const std::vector<std::string>& get(const std::string& key);
         /// <summary>
         /// 修改用户设置
         /// </summary>
         /// <param name="key">设置项名</param>
         /// <param name="val">项值</param>
-        __declspec(dllimport) static void set(const std::string key, const std::string& val);
+        __declspec(dllexport) static void set(const std::string& key, const std::vector<std::string>& val);
+        /// <summary>
+        /// 同步设置信息到本地文件
+        /// </summary>
+        __declspec(dllexport) static void synchronizeToFile();
+        /// <summary>
+        /// 从本地文件同步设置信息到内存
+        /// </summary>
+        __declspec(dllexport) static void synchronizeFromFile();
         ~SettingsData();
     private:
         SettingsData();
-        static SettingsData* s_instance;
-        static SettingsData& instace();
-        std::map<std::string, std::string> m_data;
-        bool read();
-        bool write();
+    };
+
+    /// <summary>
+    /// 运行时数据，生命周期随进程一致
+    /// </summary>
+    class RuntimeData
+    {
+    public:
+        /// <summary>
+        /// 读取运行时全局数据
+        /// </summary>
+        /// <param name="key">关键字</param>
+        /// <returns>返回值</returns>
+        __declspec(dllimport) static const Generic& get(const std::string& key);
+        /// <summary>
+        /// 设置运行时全局数据
+        /// </summary>
+        /// <param name="key">关键字</param>
+        /// <param name="val">值</param>
+        __declspec(dllimport) static void set(const std::string& key, const Generic& val);
+    private:
+        RuntimeData();
+    };
+
+    /// <summary>
+    /// 扩展管理
+    /// </summary>
+    class ExtensionManager
+    {
+    public:
+        /// <summary>
+        /// 加载扩展
+        /// </summary>
+        /// <param name="name">扩展名</param>
+        __declspec(dllimport) static void loadExtension(const std::string& name);
+        /// <summary>
+        /// 从设置加载扩展
+        /// </summary>
+        __declspec(dllimport) static void loadExtensionFromSettings();
+        /// <summary>
+        /// 卸载扩展
+        /// </summary>
+        /// <param name="name">扩展名称</param>
+        __declspec(dllimport) static void unloadExtension(const std::string& name);
+        /// <summary>
+        /// 卸载全部扩展
+        /// </summary>
+        __declspec(dllimport) static void unloadAllExtension();
+    private:
+        ExtensionManager();
     };
 }

@@ -3,13 +3,23 @@
 
 int main()
 {
-    CHAR exeFullPath[1024]; // MAX_PATH
+    // 设置exe路径
+    CHAR exeFullPath[1024];
     GetModuleFileNameA(NULL, exeFullPath, 1024);
-    std::string path = exeFullPath;
-    tw::SettingsData::set("val", "123");
-    tw::Window::start();
-    std::this_thread::sleep_for(std::chrono::milliseconds(3000));
-    tw::Window::stop();
+    tw::RuntimeData::set("ExePath", std::string(exeFullPath));
+
+    // 读取设置信息
+    tw::SettingsData::synchronizeFromFile();
+
+    // 加载扩展
+    tw::ExtensionManager::loadExtensionFromSettings();
+
+
+
+
+    //tw::Window::start();
+    //std::this_thread::sleep_for(std::chrono::milliseconds(3000));
+    //tw::Window::stop();
     //HINSTANCE hdll;
     //hdll = LoadLibraryA("Test.dll");
     //if (hdll == NULL)

@@ -42,6 +42,12 @@
     <ClInclude Include="RuntimeData.h">
       <Filter>Data</Filter>
     </ClInclude>
+    <ClInclude Include="Generic.h">
+      <Filter>Other</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtensionManager.h">
+      <Filter>Other</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -70,6 +76,9 @@
     </ClCompile>
     <ClCompile Include="RuntimeData.cpp">
       <Filter>Data</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtensionManager.cpp">
+      <Filter>Other</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
