@@ -175,6 +175,8 @@ copy  "$(SolutionDir)$(ProjectName)\*.dll" "$(SolutionDir)..\bin\$(Configuration
     <ClInclude Include="Log.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Transform.h" />
+    <ClInclude Include="Vec.h" />
     <ClInclude Include="WhenDestructing.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
@@ -189,6 +191,8 @@ copy  "$(SolutionDir)$(ProjectName)\*.dll" "$(SolutionDir)..\bin\$(Configuration
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="Vec.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

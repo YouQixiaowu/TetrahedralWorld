@@ -1,6 +1,7 @@
 #pragma once
 #define WIN32_LEAN_AND_MEAN             // 从 Windows 头文件中排除极少使用的内容
 #include <string>
+#include <vector>
 #include <windows.h>
 #include <functional>
 namespace tw
@@ -55,5 +56,43 @@ namespace tw
         __declspec(dllimport) ~Window();
     private:
         Window();
+    };
+
+    class Vec
+    {
+    public:
+        __declspec(dllimport) Vec();
+        __declspec(dllimport) Vec(double x, double y, double z);
+        __declspec(dllimport) Vec(const Vec& ot);
+        __declspec(dllimport) Vec& operator=(const Vec& ot);
+        __declspec(dllimport) ~Vec();
+    public:
+        class Base
+        {
+        public:
+            virtual ~Base() {}
+        };
+        Base* m_ptr;
+    };
+
+    class Transform
+    {
+    public:
+        __declspec(dllimport) Transform();
+        __declspec(dllimport) ~Transform();
+        __declspec(dllimport) Transform(const Transform& ot);
+        __declspec(dllimport) Transform operator=(const Transform& ot);
+        __declspec(dllimport) Transform operator*(const Transform& ob) const;
+        __declspec(dllimport) Vec operator*(const Vec& ob) const;
+        __declspec(dllimport) std::vector<Vec> operator*(const std::vector<Vec>& ob) const;
+        __declspec(dllimport) void act_on(Vec& ob);
+        __declspec(dllimport) void act_on(std::vector<Vec>& ob);
+    private:
+        class Base
+        {
+        public:
+            virtual ~Base() {}
+        };
+        Base* m_ptr;
     };
 }

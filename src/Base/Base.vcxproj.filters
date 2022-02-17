@@ -13,6 +13,9 @@
     <Filter Include="Other">
       <UniqueIdentifier>{0f897fe9-a106-4711-8430-f597a7c714ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Geometry">
+      <UniqueIdentifier>{9842def9-1910-47c3-b903-75771fdea9af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -39,6 +42,12 @@
     <ClInclude Include="WhenDestructing.h">
       <Filter>Other</Filter>
     </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -58,6 +67,12 @@
     </ClCompile>
     <ClCompile Include="Log.cpp">
       <Filter>Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Vec.cpp">
+      <Filter>Geometry</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

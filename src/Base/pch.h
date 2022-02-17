@@ -19,6 +19,7 @@
 #include <list>
 #include <tuple>
 #include <string>
+#include <typeindex>
 
 /* 依赖的三方库 */
 // GLAD https://glad.dav1d.de/
@@ -36,4 +37,7 @@
 #include "Log.h"
 #include "Window.h"
 #include "Renderer.h"
+#include "Vec.h"
+#include "Transform.h"
+
 #endif //PCH_H
