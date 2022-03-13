@@ -7,31 +7,19 @@
     <Filter Include="Other">
       <UniqueIdentifier>{50ae6e68-f520-4eb6-8bd6-3ceb0e6bad67}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Event">
-      <UniqueIdentifier>{e89274ab-dffb-4a86-9b01-7c4538a830f1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Data">
       <UniqueIdentifier>{b74e7c1f-768d-489a-a481-30b4a759631e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Task">
+      <UniqueIdentifier>{6d046c3a-c0c6-4d2c-bb80-ee32a07d8224}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>_Common</Filter>
     </ClInclude>
-    <ClInclude Include="MainProcedure.h">
-      <Filter>Event</Filter>
-    </ClInclude>
-    <ClInclude Include="NamedEvent.h">
-      <Filter>Event</Filter>
-    </ClInclude>
-    <ClInclude Include="Supervisor.h">
-      <Filter>Event</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\inc\Core\CoreAPI.h">
       <Filter>_Common</Filter>
-    </ClInclude>
-    <ClInclude Include="ThreadMutex.h">
-      <Filter>Other</Filter>
     </ClInclude>
     <ClInclude Include="SettingsData.h">
       <Filter>Data</Filter>
@@ -48,6 +36,9 @@
     <ClInclude Include="ExtensionManager.h">
       <Filter>Other</Filter>
     </ClInclude>
+    <ClInclude Include="Slave.h">
+      <Filter>Task</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -55,18 +46,6 @@
     </ClCompile>
     <ClCompile Include="dllmain.cpp">
       <Filter>_Common</Filter>
-    </ClCompile>
-    <ClCompile Include="MainProcedure.cpp">
-      <Filter>Event</Filter>
-    </ClCompile>
-    <ClCompile Include="NamedEvent.cpp">
-      <Filter>Event</Filter>
-    </ClCompile>
-    <ClCompile Include="Supervisor.cpp">
-      <Filter>Event</Filter>
-    </ClCompile>
-    <ClCompile Include="ThreadMutex.cpp">
-      <Filter>Other</Filter>
     </ClCompile>
     <ClCompile Include="ArchiveData.cpp">
       <Filter>Data</Filter>
@@ -79,6 +58,9 @@
     </ClCompile>
     <ClCompile Include="ExtensionManager.cpp">
       <Filter>Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Slave.cpp">
+      <Filter>Task</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

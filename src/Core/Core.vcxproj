@@ -169,20 +169,15 @@ copy  "$(SolutionDir)..\lib\$(Configuration)_$(Platform)\$(ProjectName).pdb" "$(
     <ClInclude Include="ArchiveData.h" />
     <ClInclude Include="ExtensionManager.h" />
     <ClInclude Include="Generic.h" />
-    <ClInclude Include="MainProcedure.h" />
-    <ClInclude Include="NamedEvent.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="RuntimeData.h" />
     <ClInclude Include="SettingsData.h" />
-    <ClInclude Include="Supervisor.h" />
-    <ClInclude Include="ThreadMutex.h" />
+    <ClInclude Include="Slave.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ArchiveData.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="ExtensionManager.cpp" />
-    <ClCompile Include="MainProcedure.cpp" />
-    <ClCompile Include="NamedEvent.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -191,8 +186,7 @@ copy  "$(SolutionDir)..\lib\$(Configuration)_$(Platform)\$(ProjectName).pdb" "$(
     </ClCompile>
     <ClCompile Include="RuntimeData.cpp" />
     <ClCompile Include="SettingsData.cpp" />
-    <ClCompile Include="Supervisor.cpp" />
-    <ClCompile Include="ThreadMutex.cpp" />
+    <ClCompile Include="Slave.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

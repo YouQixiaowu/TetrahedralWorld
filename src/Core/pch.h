@@ -27,12 +27,10 @@
 #include <chrono>
 #include "Base/BaseAPI.h"
 #include "Generic.h"
-#include "MainProcedure.h"
-#include "NamedEvent.h"
-#include "ThreadMutex.h"
-#include "Supervisor.h"
 #include "ArchiveData.h"        // 存档数据
 #include "SettingsData.h"       // 用户设置数据
 #include "RuntimeData.h"        // 运行时数据
 #include "ExtensionManager.h"   // 扩展管理
+#include "Slave.h"              // 子线程
+
 #endif //PCH_H
